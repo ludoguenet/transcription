@@ -11,8 +11,16 @@ class TranscribeController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        ProcessTranscription::dispatch(Storage::path('podcast.wav'));
+        $request->validate([
+            'file' => 'nullable|mimes:flac,wav,mpga|max:2048',
+        ]);
+
+        $path = $request->file('file')->store('uploads');
+
+        ProcessTranscription::dispatch(Storage::path($path));
+
+        return back()->with('success', 'File uploaded and transcription started.');
     }
 }

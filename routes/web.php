@@ -5,8 +5,5 @@ use App\Jobs\ProcessTranscription;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/transcribe', TranscribeController::class);
+Route::view('/', 'upload');
+Route::post('/transcribe', TranscribeController::class)->name('transcribe');

@@ -14,7 +14,7 @@ class ProcessTranscription implements ShouldQueue
 {
     use Queueable;
 
-    const PATHNAME = 'transcription.txt';
+    const PATHNAME = '/podcasts/transcription.txt';
 
     public $timeout = 120;
 
