@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Jobs\ProcessTranscription;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TranscribeController extends Controller
@@ -14,7 +14,7 @@ class TranscribeController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'file' => 'nullable|mimes:flac,wav,mpga|max:2048',
+            'file' => 'nullable|mimes:flac,wav,mpga,mp3|max:2048',
         ]);
 
         $path = $request->file('file')->store('uploads');

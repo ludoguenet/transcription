@@ -3,11 +3,11 @@
 namespace App\Jobs;
 
 use Codewithkyrian\Whisper\Whisper;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Foundation\Queue\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
-
 use Codewithkyrian\Whisper\WhisperFullParams;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Support\Facades\Storage;
+
 use function Codewithkyrian\Whisper\readAudio;
 
 class ProcessTranscription implements ShouldQueue
@@ -52,8 +52,8 @@ class ProcessTranscription implements ShouldQueue
     {
         $text = '';
 
-        foreach($segments as $segment) {
-            $text.= $segment->text;
+        foreach ($segments as $segment) {
+            $text .= $segment->text;
         }
 
         Storage::put(self::PATHNAME, $text);
