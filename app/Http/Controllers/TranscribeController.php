@@ -14,7 +14,7 @@ class TranscribeController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'file' => 'nullable|mimes:flac,wav,mpga,mp3|max:2048',
+            'file' => 'required|mimes:flac,wav,mpga,mp3|max:2048',
         ]);
 
         $path = $request->file('file')->store('uploads');

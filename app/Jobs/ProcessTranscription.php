@@ -16,7 +16,7 @@ class ProcessTranscription implements ShouldQueue
 
     const PATHNAME = '/podcasts/transcription.txt';
 
-    public $timeout = 120;
+    public $timeout = 300;
 
     /**
      * Create a new job instance.
@@ -36,7 +36,7 @@ class ProcessTranscription implements ShouldQueue
             ->withLanguage(config('app.locale'));
 
         $whisper = Whisper::fromPretrained(
-            'tiny.en',
+            'medium',
             baseDir: config('services.whisper.models_directory'),
             params: $params
         );
