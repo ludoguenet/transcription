@@ -1,4 +1,4 @@
-@error('file')
+@error($name)
     <div class="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8 mt-5">
         <div class="rounded-md bg-purple-50 p-4">
             <div class="flex">

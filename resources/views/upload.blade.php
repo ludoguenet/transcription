@@ -20,7 +20,7 @@
 
     @include('partials.success')
 
-    @include('partials.error')
+    @include('partials.error', ['name' => 'podcast'])
 
     <main class="flex items-center justify-center h-[calc(100vh-4rem)]">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 max-w-7xl">
@@ -45,7 +45,7 @@
                                         téléverser</span>
                                 </div>
 
-                                <input name="file" class="h-full w-full opacity-0 cursor-pointer" type="file" />
+                                <input name="podcast" class="h-full w-full opacity-0 cursor-pointer" type="file" />
                             </div>
                         </div>
                     </div>
